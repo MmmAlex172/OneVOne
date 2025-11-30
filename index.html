@@ -223,6 +223,7 @@
                 0 15px 35px rgba(255, 165, 0, 0.25);
         }
         
+        /* افکت جدید برای پالس نور */
         .link-glow {
             position: absolute;
             top: 0;
@@ -343,25 +344,11 @@
             </a>
         </div>
         <footer>
-            منتظر قدوم 🌱تان هستیم
+            منتظر قدم‌های 🌱تان هستیم 
+            
         </footer>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const links = document.querySelectorAll('.link');
-            
-            links.forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-15px) scale(1.15)';
-                });
-                
-                link.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-        });
-    </script>
+    
 <canvas id="particle-canvas"></canvas>
 
 <script>
@@ -401,7 +388,8 @@ class Particle {
         ctx.fill();
     }
 }
-    
+
+// ایجاد ذرات
 for (let i = 0; i < particleCount; i++) {
     particles.push(new Particle());
 }
@@ -435,6 +423,97 @@ window.addEventListener('resize', function() {
     z-index: -1;
     background: #000;
 }
+</style>
+
+<div class="footer">
+    <p>Designed with <span class="heart">❤️</span> by 
+       <a href="https://t.me/Mmd172" target="_blank" class="telegram-link">@Mmd172</a>
+    </p>
+</div>
+
+<style>
+    .footer {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        animation: fadeInUp 1s ease-out;
+        animation-delay: 1s;
+        animation-fill-mode: both;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(15px);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        font-family: 'Segoe UI', 'Vazirmatn', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        z-index: 1000;
+    }
+
+    .footer p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        direction: ltr;
+    }
+
+    /* لینک تلگرام - بدون رنگ آبی */
+    .telegram-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid transparent;
+        padding: 2px 4px;
+        border-radius: 4px;
+        direction: ltr;
+    }
+
+    .telegram-link:hover {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom-color: rgba(255, 255, 255, 0.5);
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        transform: translateY(-1px);
+    }
+
+    /* انیمیشن قلب */
+    .heart {
+        animation: heartbeat 2s ease-in-out infinite;
+        direction: ltr;
+        display: inline-block;
+    }
+
+    @keyframes heartbeat {
+        0%, 100% { 
+            opacity: 0.7;
+            transform: scale(1.06);
+        }
+        50% { 
+            opacity: 1;
+            transform: scale(1.18);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer {
+            bottom: 10px;
+            font-size: 12px;
+            padding: 12px 0;
+        }
+        
+        .footer p {
+            font-size: 11px;
+            flex-direction: row;
+        }
+    }
+</style>
 </style>
  
 </body>
